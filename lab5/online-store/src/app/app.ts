@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*import { Component, signal } from '@angular/core';
+=======
+import { Component, signal } from '@angular/core';
+>>>>>>> e2b7776db465729289b666e5dff2cfa8ccc67de7
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,6 +13,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('online-store');
+<<<<<<< HEAD
 }*/
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -96,4 +101,6 @@ export class App implements OnInit {
     console.log('Added to cart:', product);
     alert(`Added ${product.name} to cart!`);
   }
+=======
+>>>>>>> e2b7776db465729289b666e5dff2cfa8ccc67de7
 }
