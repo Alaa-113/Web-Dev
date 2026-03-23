@@ -1,0 +1,51 @@
+<div class="app-container">
+  <header>
+    <h1>{{ title() }}</h1>
+  </header>
+
+  <div class="main-content">
+    <!-- Sidebar with categories -->
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      
+      <div *ngIf="categories.length === 0" class="loading">
+        Loading categories...
+      </div>
+      
+      <ul class="categories-list" *ngIf="categories.length > 0">
+        <li *ngFor="let category of categories" 
+            (click)="selectCategory(category)"
+            class="category-item"
+            [class.active]="selectedCategory?.id === category.id">
+          {{ category.name }}
+        </li>
+      </ul>
+      
+      <button (click)="showAllProducts()" class="show-all-btn">
+        Show All Products
+      </button>
+    </aside>
+
+    <!-- Main content with products -->
+    <main class="products-area">
+      <h2>{{ selectedCategory ? selectedCategory.name + ' Products' : 'All Products' }}</h2>
+      
+      <div *ngIf="products.length === 0" class="loading">
+        Loading products...
+      </div>
+
+      <div class="products-grid" *ngIf="products.length > 0">
+        <div *ngFor="let product of products" class="product-card">
+          <h3>{{ product.name }}</h3>
+          <p class="description">{{ product.description || 'No description' }}</p>
+          <p class="price">${{ product.price }}</p>
+          <p class="category">Category: {{ product.category }}</p>
+          <p class="stock">In Stock: {{ product.count }}</p>
+          <button (click)="addToCart(product)" class="add-to-cart-btn">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
